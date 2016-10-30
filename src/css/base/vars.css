@@ -1,0 +1,13 @@
+:root {
+  --c-primary: #fff;
+  --c-secondary: rgb(56, 186, 232);
+  --c-bg: rgb(29,29,29);
+  --box-shadow-base: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  --height-header: 6rem;
+  --spacing: 1rem;
+  --spacing-double: calc(var(--spacing) * 2);
+  --container-spacing: 17%;
+  --double-container-spacing: calc(var(--container-spacing) * 2);
+  --triple-container-spacing: calc(var(--container-spacing) * 3);
+  --max-container-spacing: calc(var(--container-spacing) * 4.5);
+}

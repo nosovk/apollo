@@ -1,0 +1,23 @@
+.footer {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 1.76em;
+
+  * + * {
+    margin-left: 1.17em;
+  }
+
+  &__links a {
+    opacity: 0.65;
+    transition: opacity 400ms;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

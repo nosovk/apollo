@@ -1,0 +1,25 @@
+.button {
+  display: inline-block;
+  height: 45px;
+  padding: 14px 54px;
+  margin: 20px 0;
+  color: inherit;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: lowercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--c-secondary);
+  cursor: pointer;
+  box-sizing: border-box;
+  opacity: 1;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: #333;
+    border-color: inherit;
+    outline: 0;
+  }
+}

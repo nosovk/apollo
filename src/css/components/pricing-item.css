@@ -1,0 +1,29 @@
+.item {
+  font-size: 0.825em;
+}
+
+.headline {
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+.price {
+  font-size: 1.3em;
+  margin-left: 0.7em;
+}
+
+.list {
+  list-style-type: initial;
+  margin-left: 1.75em;
+  line-height: 1.6
+}
+
+.details {
+  font-size: 0.85em;
+  margin: 10px 0;
+}
+
+.youget {
+  font-weight: 600;
+  line-height: 1.42;
+}
