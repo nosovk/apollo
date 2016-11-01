@@ -1,23 +1,27 @@
 #contacts.section(data-anchor='contactsPage')
   .container.contacts
-    .contacts__content
-      h1.
-        Get in touch
-        with us
-      p If you would like to find out more about how we can help you, please give us a call or drop us a line.
+    .contacts__tabs
+      a.contacts__tab.is-active(href='#') Contacts
+      a.contacts__tab(href='#') Feedback
+    .contacts__content.contacts__tab-container.is-active
+      h1.contacts__title
+        |Get in touch
+        br
+        |with us
+      p.contacts__text If you would like to find out more about how we can help you, please give us a call or drop us a line.
 
       .contacts__items
-        p
+        p.contacts__item
           +icon('location')
           |Kyiv, Ukraine
-        p
+        p.contacts__item
           +icon('phone')
           |+38 063 57 37 626
-        p
+        a.contacts__item.contacts__mail(href='mailto:vt@apollo14.agency')
           +icon('mail')
           |vt@apollo14.agency
 
-    form.contacts__form
+    form.contacts__form.contacts__tab-container
       h4.contacts__headline Send a message
       div
         //- label Name
@@ -28,4 +32,4 @@
       div
         //- label Message
         textarea(placeholder='Message', rows='5')
-      submit.button send message
+      submit.button.button--form send message

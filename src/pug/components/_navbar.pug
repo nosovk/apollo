@@ -8,6 +8,11 @@
   }
 
 ul.header__nav#menu
+  .header__inner.header__inner--nav
+    a.header__logo(href='#aboutPage')
+      +icon('logo')
+    a.header__close(href='#')
+      +icon('close')
   each href, item in menu
     li.nav__item(data-menuanchor=href)
       a(href='#' + href, title= item)= item

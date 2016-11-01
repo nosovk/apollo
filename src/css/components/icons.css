@@ -1,6 +1,6 @@
 .logo {
-  width: 150px;
-  height: 36px;
+  width: 100%;
+  height: 100%;
 }
 
 .facebook,
@@ -22,5 +22,15 @@
 
 .burger {
   width: 25px;
+  height: 16px;
+}
+
+.back {
+  width: 22px;
+  height: 12px;
+}
+
+.close {
+  width: 17px;
   height: 16px;
 }

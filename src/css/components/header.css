@@ -1,29 +1,35 @@
 .header {
   position: fixed;
-  z-index: 10;
+  z-index: 20;
   top: 0;
   left: 0;
   width: 100%;
-  height: 77px;
-  font-size: 22px;
   font-weight: 600;
   text-transform: uppercase;
 
-  /*@media (max-width: 1023px) {
-    background: var(--c-bg);
-  }*/
-
-  @media (min-width: 1024px) {
-    font-size: 14px;
-  }
-
   &__logo {
     opacity: 1;
+    width: 100px;
+    height: 24px;
+
+    @media (min-width: 769px) {
+      width: 150px;
+      height: 36px;
+    }
   }
 
-  &__burger {
+  &__burger,
+  &__close {
+    opacity: 1;
+
     @media (min-width: 1024px) {
       display: none;
+    }
+
+    &--portfolio {
+      @media (min-width: 1024px) {
+        display: block;
+      }
     }
   }
 
@@ -31,24 +37,51 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2em 0 1em;
+    padding: 0.7em 0;
+    font-size: 22px;
+
+    @media (min-width: 1024px) {
+      font-size: 14px;
+    }
+
+    @media (min-width: 769px) {
+      padding: 2em 0 1em;
+    }
+
+    &--nav {
+      @media (min-width: 1024px) {
+        display: none;
+      }
+    }
   }
 
   &__nav {
+    transition: all 400ms;
+    padding: 0 6%;
+
+    @media (min-width: 426px) and (max-width: 1024px) {
+      padding: 0 17%;
+    }
+
+    &.is-open {
+      visibility: visible;
+      opacity: 1;
+    }
+
     @media (max-width: 1023px) {
       position: fixed;
-      z-index: 100;
+      z-index: 200;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      padding: 1em 17%;
       background: var(--c-bg);
       visibility: hidden;
       opacity: 0;
     }
 
     @media (min-width: 1024px) {
+      padding: 0;
 
       > * + * {
         margin-left: 2.15em;
@@ -68,7 +101,6 @@
     font-weight: 800;
   }
 
-
   &::before {
     content: '';
     position: absolute;
@@ -85,6 +117,10 @@
 
   &.active,
   &:hover {
+    a {
+      opacity: 1;
+    }
+
     &::before {
       max-width: 20px;
     }

@@ -1,20 +1,63 @@
-#contacts {
-
-}
-
 .contacts {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin-bottom: 0.45em;
+
+    @media (min-width: 1024px) {
+      margin-bottom: 0.56em;
+    }
+  }
+
+  &__text {
+    margin-bottom: 50px;
+  }
+
+  &__items {
+    margin-top: 50px;
+
+    @media (min-width: 768px) {
+      margin: 0;
+    }
+  }
 
   &__items .icon {
     margin-right: 0.83em;
   }
 
+  &__item {
+    margin-bottom: 25px;
+  }
+
   &__content {
-    width: 30%;
-    max-width: 300px;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 400ms;
+
+    &.is-active {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media (min-width: 768px) {
+      max-width: 300px;
+      position: static;
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   &__headline {
@@ -25,15 +68,28 @@
   }
 
   &__form {
-    width: 50%;
-    text-align: right;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 400ms;
 
-    label {
-      /*font-size: 0.7em;*/
-      /*display: block;*/
+    &.is-active {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
     }
 
-    input, textarea {
+    @media (min-width: 768px) {
+      width: 50%;
+      text-align: right;
+      position: static;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    input,
+    textarea {
       text-align: left;
       font-size: 0.7em;
       display: block;
@@ -44,11 +100,57 @@
       margin-bottom: 1.7em;
       font-weight: 600;
       color: rgba(#fff, 0.8);
+      outline: none;
     }
 
     textarea {
       text-align: left;
       margin-bottom: 10px;
     }
+  }
+
+  &__tabs {
+    margin: 70px 0 40px;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__tab {
+    margin-right: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      display: block;
+      background: var(--c-secondary);
+      z-index: -1;
+      max-width: 0;
+      transition: max-width 300ms;
+    }
+
+    &.is-active,
+    &:hover {
+      opacity: 1;
+
+      &::before {
+        max-width: 20px;
+      }
+    }
+  }
+
+  &__mail {
+    opacity: 0.9;
   }
 }

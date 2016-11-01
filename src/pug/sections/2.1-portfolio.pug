@@ -1,10 +1,85 @@
 .portfolio
-  .container
-    .portfolio__header
-      +icon('logo')
-      +icon('close')
-    .portfolio__description
-      h1 Projects
-      p We have 5-year experience of creating clothings brands, promoting them and also creating content for big brands and promo campaigns. That`s why we can understand needs of visual content properly. One day we decided that we can link talented professional photographers and video operators in Ukraine with companies all over the world.
-
-    .portfolio__items
+  .portfolio__inner
+    .container.container--modal
+      .portfolio__header
+        a.header__logo(href='#aboutPage')
+          +icon('logo')
+        a.header__close.header__close--portfolio(href='#')
+          +icon('close')
+      .portfolio__description
+        h1.portfolio__title Projects
+        p.portfolio__text We have 5-year experience of creating clothings brands, promoting them and also creating content for big brands and promo campaigns. That`s why we can understand needs of visual content properly. One day we decided that we can link talented professional photographers and video operators in Ukraine with companies all over the world.
+      .portfolio__categories
+        a.portfolio__category.is-active(href='#') all
+        a.portfolio__category(href='#') photo
+        a.portfolio__category(href='#') video
+        a.portfolio__category(href='#') lookbook
+      .portfolio__items
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image3@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image3@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image3@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image3@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image3@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image3@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image3@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image3@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image3@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image1@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+        a.portfolio__item(href='#')
+          img.portfolio__image(src='img/image2@2x.jpg')
+      .portfolio__loadmore
+          a.button.button--loadmore(href='#')
+            +icon('loadmore')
+            |load more

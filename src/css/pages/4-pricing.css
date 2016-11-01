@@ -3,13 +3,39 @@
 }
 
 .pricing {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: block;
+  position: relative;
+
+  @media (min-width: 769px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
   &__tabs {
     text-transform: uppercase;
-    width: 50%;
+    font-size: 16px;
+    width: 100%;
+    padding-top: 100px;
+    transition: opacity 400ms, transform 400ms;
+
+    @media (max-width: 768px) {
+      transform: translateX(0);
+    }
+
+    @media (min-width: 769px) {
+      width: 50%;
+      padding-top: 0;
+      padding-right: 1em;
+    }
+
+    &.is-hidden {
+      @media (max-width: 768px) {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-100%);
+      }
+    }
   }
 
   &__link {
@@ -17,31 +43,58 @@
     margin-bottom: 20px;
 
     &.is-active {
-      color: var(--c-secondary);
+      @media (min-width: 769px) {
+        opacity: 1;
+        color: var(--c-secondary);
+      }
     }
 
     &:hover {
+      opacity: 1;
       color: var(--c-secondary);
     }
   }
 
   &__items {
-    width: 50%;
-    position: relative;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+
+    @media (min-width: 769px) {
+      position: relative;
+      width: 50%;
+      top: 0;
+    }
   }
 
   &__item {
     position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 400ms;
+    transition: opacity 400ms, transform 400ms;
+
+    @media (max-width: 768px) {
+      transform: translateX(100%);
+    }
 
     &.is-active {
-      position: static;
       opacity: 1;
       visibility: visible;
+
+      @media (max-width: 768px) {
+        transform: translateX(0);
+      }
+
+      @media (min-width: 769px) {
+        position: static;
+      }
     }
+  }
+}
+
+.lbreak {
+  @media (min-width: 1025px) {
+    display: none;
   }
 }

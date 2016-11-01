@@ -1,16 +1,32 @@
 #pricing.section(data-anchor='pricingPage')
   .container.pricing
     .pricing__tabs
-      a#domesticLink.pricing__link.is-active(href='#') Domestic Video Shoot
-      a#internationalLink.pricing__link(href='#') International Travel Video Shoot
-      a#lookbookLink.pricing__link(href='#') Lookbook or Catalogue Photo Shoot
-      a#smmLink.pricing__link(href='#') SMM Services
+      a#domesticLink.pricing__link.is-active(href='#')
+        |Domestic Video&nbsp;
+        br.lbreak
+        |Shoot
+      a#internationalLink.pricing__link(href='#')
+        |International Travel Video&nbsp;
+        br.lbreak
+        |Shoot
+      a#lookbookLink.pricing__link(href='#')
+        |Lookbook or Catalogue&nbsp;
+        br.lbreak
+        |Photo Shoot
+      a#smmLink.pricing__link(href='#')
+        |SMM&nbsp;
+        br.lbreak
+        |Services
     .pricing__items
-      .pricing__item.item.is-active#domestic
-        h4.headline Approximately 1-2 min video
-          span.price $ 3500 +
-        h4.headline Includes:
-        ul.list
+      .pricing__item.is-active.item#domestic
+        .item__header
+          a.item__back(href='#')
+            +icon('back')
+          h4.item__name Approximately 1-2 min video
+        h4.item__price-title Price:
+          span.item__price $ 3500 +
+        h4.item__subtitle Includes:
+        ul.item__list
           li Creative concept
           li Storyboard
           li Operators work
@@ -21,68 +37,77 @@
           li Musical score
           li Editing
           li Final Delivery
-        p.details *Shipping costs for delivering products, goods are not included
-        p.youget
-          |You get:
-          br
-          |1 video up to 2 minutes with models in various locations, demonstrating your products / clothing etc. Also, it can be a Kickstarter presentation video for a product or service.
+        p.item__details *Shipping costs for delivering products, goods are not included
+        h4.item__youget-title You get:
+        p.item__youget 1 video up to 2 minutes with models in various locations, demonstrating your products / clothing etc. Also, it can be a Kickstarter presentation video for a product or service.
       .pricing__item.item#international
-        h4.headline Approximately 1-2 min video
-          span.price $ 3500 +
-        h4.headline Includes:
-        ul.list
+        .item__header
+          a.item__back(href='#')
+            +icon('back')
+          h4.item__name Approximately 1-2 min video
+        h4.item__price-title Price:
+          span.item__price $ 7000 +
+        h4.item__subtitle Includes:
+        ul.item__list
           li Creative concept
           li Storyboard
           li Operators work
           li Model scouting and scheduling
           li Location scouting and scheduling
           li Make-up (if needed)
+          li Visa costs and transportation
           li Stylist
           li Musical score
           li Editing
           li Final Delivery
-        p.details *Shipping costs for delivering products, goods are not included
-        p.youget
-          |You get:
-          br
-          |1 video up to 2 minutes with models in various locations, demonstrating your products / clothing etc. Also, it can be a Kickstarter presentation video for a product or service.
+        p.item__details *Shipping costs for delivering products, goods are not included
+        h4.item__youget-title You get:
+        p.item__youget 1 video up to 2 minutes with models in various locations, demonstrating your products / clothing etc. Also, it can be a Kickstarter presentation video for a product or service.
       .pricing__item.item#lookbook
-        h4.headline Approximately 1-2 min video
-          span.price $ 3500 +
-        h4.headline Includes:
-        ul.list
+        .item__header
+          a.item__back(href='#')
+            +icon('back')
+          h4.item__name Lookbook photo shoot
+        h4.item__price-title Price:
+          span.item__price $ 1500 +
+        h4.item__subtitle Includes:
+        ul.item__list
           li Creative concept
-          li Storyboard
-          li Operators work
+          li Photographers work
           li Model scouting and scheduling
           li Location scouting and scheduling
           li Make-up (if needed)
           li Stylist
-          li Musical score
-          li Editing
+          li Retouch
           li Final Delivery
-        p.details *Shipping costs for delivering products, goods are not included
-        p.youget
-          |You get:
-          br
-          |1 video up to 2 minutes with models in various locations, demonstrating your products / clothing etc. Also, it can be a Kickstarter presentation video for a product or service.
+        //- p.item__details *Shipping costs for delivering products, goods are not included
+        h4.item__youget-title You get:
+        p.item__youget up to 15 photos (varies).
+        .item__header
+          h4.item__name Catalogue photo shoot
+        h4.item__price-title.item__price-title--second Price:
+          span.item__price $ 800 +
+        h4.item__youget-title.item__youget-title--second You get:
+        p.item__youget up to 25 photos for website / Kickstarter campaign / press
       .pricing__item.item#smm
-        h4.headline Approximately 1-2 min video
-          span.price $ 3500 +
-        h4.headline Includes:
-        ul.list
-          li Creative concept
-          li Storyboard
-          li Operators work
-          li Model scouting and scheduling
-          li Location scouting and scheduling
-          li Make-up (if needed)
-          li Stylist
-          li Musical score
-          li Editing
-          li Final Delivery
-        p.details *Shipping costs for delivering products, goods are not included
-        p.youget
-          |You get:
+        .item__header
+          a.item__back(href='#')
+            +icon('back')
+          h4.item__name Services of SMM for Facebook and Instagram social media for 3 months
+        h4.item__price-title Price:
+          span.item__price $ 1200 / mo
+        h4.item__subtitle Facebook:
+        ul.item__list
+          li Posts campaign planning
+          li Posting and commenting, communicating with followers
+          li KPI planning and implementation
+        h4.item__subtitle Instagram:
+        ul.item__list
+          li Posts campaign planning
+          li Posting and commenting, communicating with followers
+          li KPI planning and implementation
+        h4.item__youget-title You get:
+        p.item__youget
+          |4 posts per week
           br
-          |1 video up to 2 minutes with models in various locations, demonstrating your products / clothing etc. Also, it can be a Kickstarter presentation video for a product or service.
+          |8 hours per day support and communication

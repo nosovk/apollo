@@ -15,11 +15,22 @@
   box-sizing: border-box;
   opacity: 1;
 
-  &:hover,
-  &:active,
-  &:focus {
-    color: #333;
+  &:hover {
     border-color: inherit;
     outline: 0;
+  }
+
+  &--projects {
+    margin: 0;
+  }
+
+  &--form {
+    margin-bottom: 0;
+  }
+
+  &--loadmore {
+    background: none;
+    margin: 0;
+    padding: 0;
   }
 }
