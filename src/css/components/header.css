@@ -11,6 +11,7 @@
     opacity: 1;
     width: 100px;
     height: 24px;
+    flex: 1;
 
     @media (min-width: 769px) {
       width: 150px;
@@ -92,7 +93,7 @@
 
 .nav__item {
   position: relative;
-  display: inline;
+  display: inline-block;
   z-index: 1;
 
   @media (max-width: 1023px) {

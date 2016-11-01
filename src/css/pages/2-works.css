@@ -21,7 +21,7 @@
     bottom: 0;
     left: 0;
     width: 30%;
-    transform: translateX(-100%);
+    transform: translateX(-100%) translateZ(1px);
   }
 
   &__items {
