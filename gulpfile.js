@@ -64,7 +64,7 @@ gulp.task('css', () => {
     rucksack,
   ];
 
-  return gulp.src('src/css/**/*.css')
+  return gulp.src('src/css/*.css')
     .pipe(postcss(processors))
     .pipe(cssnano({
       discardComments: {
