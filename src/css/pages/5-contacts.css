@@ -103,6 +103,7 @@
       font-weight: 600;
       color: rgba(#fff, 0.8);
       outline: none;
+      border-radius: 0;
     }
 
     textarea {
