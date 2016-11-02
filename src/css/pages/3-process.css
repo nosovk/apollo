@@ -9,6 +9,10 @@
     padding-top: 80px;
   }
 
+  &__headline {
+    margin-bottom: 0.9em;
+  }
+
   &__inner {
     text-align: justify;
     margin-top: 20px;
