@@ -10,6 +10,8 @@
     width: 100%;
     height: 100%;
     background-image: url('../img/bg-about.jpg');
+    background-repeat: repeat;
+    background-size: cover;
     z-index: -1;
   }
 }
