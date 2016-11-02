@@ -2,7 +2,8 @@ a {
   text-decoration: none;
   color: inherit;
   outline: 0;
-  transition: all 0.3s;
+  transition: all 0.4s;
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
   opacity: 0.65;
 
   &:hover {
