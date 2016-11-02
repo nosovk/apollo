@@ -112,6 +112,7 @@ gulp.task('browsersync', () => (
     server: {
       baseDir: './dest',
     },
+    open: false,
   })
 ));
 
