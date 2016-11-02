@@ -15,7 +15,6 @@
   box-sizing: border-box;
   opacity: 1;
   position: relative;
-  /*border: 1px solid var(--c-secondary);*/
 
   &::before {
     transform: scale3d(1.2, 1.2, 1);
