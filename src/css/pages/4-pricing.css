@@ -18,6 +18,7 @@
     z-index: 10;
     text-transform: uppercase;
     font-size: 16px;
+    font-weight: 600;
     width: 100%;
     transition: opacity 400ms, transform 400ms;
 

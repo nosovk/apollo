@@ -39,6 +39,12 @@
       padding-top: 100%;
     }
 
+    &:hover {
+      transform: translateY(-10px);
+      /*box-shadow: 0 20px 35px 0 rgba(8, 8, 8, 0.7);*/
+      box-shadow: 0 20px 44px 0 rgba(8, 8, 8, 0.35);
+    }
+
     @media (min-width: 426px) {
       width: inherit;
     }

@@ -14,10 +14,34 @@
   cursor: pointer;
   box-sizing: border-box;
   opacity: 1;
+  position: relative;
+  /*border: 1px solid var(--c-secondary);*/
+
+  &::before {
+    transform: scale3d(1.2, 1.2, 1);
+    border: 1px solid rgba(var(--c-secondary), 0.7);
+    content: '';
+    z-index: -1;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s, opacity 0.3s;
+    transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+    opacity: 0;
+  }
 
   &:hover {
-    border-color: inherit;
+    color: var(--c-secondary);
+    background: transparent;
     outline: 0;
+
+    &::before {
+      transform: scale3d(1, 1, 1);
+      opacity: 1;
+    }
   }
 
   &--projects {
