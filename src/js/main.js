@@ -36,22 +36,57 @@ for (let i = 0, max = navItems.length; i < max; i += 1) {
     const tabContainers = document.querySelectorAll(options.tabContainers);
     let activeTab = 0;
     let initialized = false;
+    const pricingSlide = document.getElementById('pricing');
 
     const goToTab = (index) => {
       if (index !== activeTab && index >= 0 && index <= tabLinks.length) {
         tabLinks[activeTab].classList.remove('is-active');
+        tabLinks[activeTab].parentElement.classList.add('is-hidden'); // for pricing tabs
         tabLinks[index].classList.add('is-active');
         tabContainers[activeTab].classList.remove('is-active');
         tabContainers[index].classList.add('is-active');
         activeTab = index;
+      }
+
+      // bg change for pricing tabs
+      if (tabLinks[index].classList.contains('pricing__link')) {
+        switch (index) {
+          case 1:
+            pricingSlide.style.backgroundImage = 'url(../img/bg-pricing1.jpg)';
+            break;
+          case 2:
+            pricingSlide.style.backgroundImage = 'url(../img/bg-pricing2.jpg)';
+            break;
+          case 3:
+            pricingSlide.style.backgroundImage = 'url(../img/bg-pricing3.jpg)';
+            break;
+          default:
+            pricingSlide.style.backgroundImage = 'url(../img/bg-pricing.jpg)';
+        }
       }
     };
 
     const handleClick = (link, index) => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
+
+        // manipulations for pricing tabs
+        if (!link.classList.contains('is-active')) {
+          tabLinks[index].classList.add('is-active');
+          tabLinks[activeTab].parentElement.classList.add('is-hidden');
+          tabContainers[activeTab].classList.remove('is-active');
+          tabContainers[index].classList.add('is-active');
+        }
+
         goToTab(index);
       });
+    };
+
+    // back function for pricing tabs
+    const back = () => {
+      tabLinks[activeTab].parentElement.classList.remove('is-hidden');
+      tabLinks[activeTab].classList.remove('is-active');
+      tabContainers[activeTab].classList.remove('is-active');
     };
 
     const init = () => {
@@ -68,6 +103,7 @@ for (let i = 0, max = navItems.length; i < max; i += 1) {
     return {
       init,
       goToTab,
+      back,
     };
   };
 
@@ -80,6 +116,31 @@ const contactTabs = tabs({
   tabContainers: '.contacts__tab-container',
 });
 
+const pricingTabs = tabs({
+  el: '.pricing',
+  tabLinks: '.pricing__link',
+  tabContainers: '.pricing__item',
+});
+
+const pricingItem = document.querySelector('.pricing__item');
+const link = document.querySelector('.pricing__link');
+const back = document.querySelectorAll('.item__back');
+
+for (let i = 0; i < back.length; i += 1) {
+  back[i].addEventListener('click', (e) => {
+    e.preventDefault();
+    pricingTabs.back();
+  });
+}
+
+(() => {
+  if (window.innerWidth <= 769) {
+    pricingItem.classList.remove('is-active');
+    link.classList.remove('is-active');
+  }
+})();
+
+pricingTabs.init();
 contactTabs.init();
 
 // portfolio modal
@@ -90,6 +151,7 @@ const closeModal = document.querySelector('.header__close--portfolio');
 portfolioButton.addEventListener('click', (e) => {
   e.preventDefault();
   portfolioModal.classList.add('is-open');
+  // disable body scroll
   $.fn.fullpage.setAllowScrolling(false);
   $.fn.fullpage.setKeyboardScrolling(false);
 });
@@ -97,6 +159,7 @@ portfolioButton.addEventListener('click', (e) => {
 closeModal.addEventListener('click', (e) => {
   e.preventDefault();
   portfolioModal.classList.remove('is-open');
+  // enable body scroll
   $.fn.fullpage.setAllowScrolling(true);
   $.fn.fullpage.setKeyboardScrolling(true);
 });
@@ -137,53 +200,5 @@ $(document).ready(() => {
       breakpoint: 300,
       settings: 'unslick',
     }],
-  });
-
-  // tabs
-  const links = $('.pricing__link');
-  const tabs = $('.pricing__tabs');
-  const pricingItem = $('.pricing__item');
-  const back = $('.item__back');
-
-  (() => {
-    if (window.innerWidth <= 769) {
-      pricingItem.first().removeClass('is-active');
-      links.first().removeClass('is-active');
-    }
-  })();
-
-  back.on('click', (e) => {
-    e.preventDefault();
-    tabs.removeClass('is-hidden');
-    pricingItem.removeClass('is-active');
-  });
-
-  links.on('click', (e) => {
-    e.preventDefault();
-    if ($(e.target).is($('#domesticLink'))) {
-      links.removeClass('is-active');
-      $('#domesticLink').addClass('is-active');
-      pricingItem.removeClass('is-active');
-      $('#domestic').addClass('is-active');
-      tabs.addClass('is-hidden');
-    } else if ($(e.target).is($('#internationalLink'))) {
-      links.removeClass('is-active');
-      $('#internationalLink').addClass('is-active');
-      pricingItem.removeClass('is-active');
-      $('#international').addClass('is-active');
-      tabs.addClass('is-hidden');
-    } else if ($(e.target).is($('#lookbookLink'))) {
-      links.removeClass('is-active');
-      $('#lookbookLink').addClass('is-active');
-      pricingItem.removeClass('is-active');
-      $('#lookbook').addClass('is-active');
-      tabs.addClass('is-hidden');
-    } else {
-      links.removeClass('is-active');
-      $('#smmLink').addClass('is-active');
-      pricingItem.removeClass('is-active');
-      $('#smm').addClass('is-active');
-      tabs.addClass('is-hidden');
-    }
   });
 });
