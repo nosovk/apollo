@@ -1,10 +1,11 @@
 // burger & menu
 const burger = document.querySelector('.header__burger');
 const close = document.querySelector('.header__close');
-const menu = document.getElementById('menu');
 const navItems = document.querySelectorAll('.nav__item');
 
 const handleMenu = () => {
+  const menu = document.getElementById('menu');
+
   if (menu.classList.contains('is-open')) {
     menu.classList.remove('is-open');
   } else {
@@ -52,16 +53,16 @@ for (let i = 0, max = navItems.length; i < max; i += 1) {
       if (tabLinks[index].classList.contains('pricing__link')) {
         switch (index) {
           case 1:
-            pricingSlide.style.backgroundImage = 'url(../img/bg-pricing1.jpg)';
+            pricingSlide.style.backgroundImage = 'url(/img/bg-pricing1.jpg)';
             break;
           case 2:
-            pricingSlide.style.backgroundImage = 'url(../img/bg-pricing2.jpg)';
+            pricingSlide.style.backgroundImage = 'url(/img/bg-pricing2.jpg)';
             break;
           case 3:
-            pricingSlide.style.backgroundImage = 'url(../img/bg-pricing3.jpg)';
+            pricingSlide.style.backgroundImage = 'url(/img/bg-pricing3.jpg)';
             break;
           default:
-            pricingSlide.style.backgroundImage = 'url(../img/bg-pricing.jpg)';
+            pricingSlide.style.backgroundImage = 'url(/img/bg-pricing.jpg)';
         }
       }
     };
@@ -122,26 +123,30 @@ const pricingTabs = tabs({
   tabContainers: '.pricing__item',
 });
 
-const pricingItem = document.querySelector('.pricing__item');
-const link = document.querySelector('.pricing__link');
-const back = document.querySelectorAll('.item__back');
+pricingTabs.init();
+contactTabs.init();
 
-for (let i = 0; i < back.length; i += 1) {
-  back[i].addEventListener('click', (e) => {
+// pricing tabs back buttons
+const pricingBack = document.querySelectorAll('.item__back');
+
+for (let i = 0; i < pricingBack.length; i += 1) {
+  pricingBack[i].addEventListener('click', (e) => {
     e.preventDefault();
     pricingTabs.back();
   });
 }
 
+// hide active pricing tab on small screens
 (() => {
+  const pricingItem = document.querySelector('.pricing__item');
+  const pricingLink = document.querySelector('.pricing__link');
+
   if (window.innerWidth <= 769) {
     pricingItem.classList.remove('is-active');
-    link.classList.remove('is-active');
+    pricingLink.classList.remove('is-active');
   }
 })();
 
-pricingTabs.init();
-contactTabs.init();
 
 // portfolio modal
 const portfolioButton = document.querySelector('.button--projects');
