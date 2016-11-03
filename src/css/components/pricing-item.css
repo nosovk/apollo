@@ -28,8 +28,14 @@
     }
   }
 
+  &__name {
+    @media (min-width: 1025px) {
+      font-size: 1.7em;
+    }
+  }
+
   &__price-title {
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: 5px;
 
     @media (min-width: 1025px) {
@@ -71,8 +77,13 @@
   }
 
   &__details {
-    font-size: 1em;
+    font-size: 0.85em;
     margin: 0;
+    opacity: 0.6;
+
+    @media (min-width: 1025px) {
+      font-size: 1em;
+    }
   }
 
   &__youget-title {
@@ -91,15 +102,19 @@
   &__youget {
     font-size: 1em;
     font-weight: 600;
-    line-height: 1.42;
+    line-height: 1.6;
 
     @media (min-width: 1025px) {
-      font-size: 1.15em;
+      font-size: 1.4em;
     }
   }
 
   &__youget {
     font-weight: 400;
     margin-bottom: 20px;
+
+    @media (min-width: 1025px) {
+      font-size: 1.15em;
+    }
   }
 }
