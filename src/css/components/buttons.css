@@ -51,10 +51,4 @@
   &--form {
     margin-bottom: 0;
   }
-
-  &--loadmore {
-    background: none;
-    margin: 0;
-    padding: 0;
-  }
 }
