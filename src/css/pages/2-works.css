@@ -1,6 +1,15 @@
 .works {
   position: relative;
 
+  /*@media (max-width: 425px) {
+    display: block;
+    padding-top: 64px;
+  }*/
+
+  &__inner {
+    position: relative;
+  }
+
   &__text {
     margin: 0 0 15px;
 

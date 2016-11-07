@@ -1,24 +1,36 @@
 #pricing.section(data-anchor='pricingPage')
   .container.pricing
     .pricing__tabs
-      a#domesticLink.pricing__link.is-active(href='#')
+      h1.pricing__headline Pricing
+      a.pricing__link.is-active(href='#')
         |Domestic Video&nbsp;
         br.lbreak
         |Shoot
-      a#internationalLink.pricing__link(href='#')
+        span.pricing__arrow
+          +icon('back')
+      br
+      a.pricing__link(href='#')
         |International Travel Video&nbsp;
         br.lbreak
         |Shoot
-      a#lookbookLink.pricing__link(href='#')
+        span.pricing__arrow
+          +icon('back')
+      br
+      a.pricing__link(href='#')
         |Lookbook or Catalogue&nbsp;
         br.lbreak
         |Photo Shoot
-      a#smmLink.pricing__link(href='#')
+        span.pricing__arrow
+          +icon('back')
+      br
+      a.pricing__link(href='#')
         |SMM&nbsp;
         br.lbreak
         |Services
+        span.pricing__arrow
+          +icon('back')
     .pricing__items
-      .pricing__item.is-active.item#domestic
+      .pricing__item.is-active.item
         .item__header
           a.item__back(href='#')
             +icon('back')
@@ -40,7 +52,7 @@
         p.item__details *Shipping costs for delivering products, goods are not included
         h4.item__youget-title You get:
         p.item__youget 1 video up to 2 minutes with models in various locations, demonstrating your products / clothing etc. Also, it can be a Kickstarter presentation video for a product or service.
-      .pricing__item.item#international
+      .pricing__item.item
         .item__header
           a.item__back(href='#')
             +icon('back')
@@ -63,7 +75,7 @@
         p.item__details *Shipping costs for delivering products, goods are not included
         h4.item__youget-title You get:
         p.item__youget 1 video up to 2 minutes with models in various locations, demonstrating your products / clothing etc. Also, it can be a Kickstarter presentation video for a product or service.
-      .pricing__item.item#lookbook
+      .pricing__item.item
         .item__header
           a.item__back(href='#')
             +icon('back')
@@ -80,7 +92,6 @@
           li Stylist
           li Retouch
           li Final Delivery
-        //- p.item__details *Shipping costs for delivering products, goods are not included
         h4.item__youget-title You get:
         p.item__youget up to 15 photos (varies).
         .item__header
@@ -89,7 +100,7 @@
           span.item__price $ 800 +
         h4.item__youget-title.item__youget-title--second You get:
         p.item__youget up to 25 photos for website / Kickstarter campaign / press
-      .pricing__item.item#smm
+      .pricing__item.item
         .item__header
           a.item__back(href='#')
             +icon('back')

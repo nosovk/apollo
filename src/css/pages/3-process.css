@@ -3,11 +3,11 @@
 }
 
 .process {
-  @media (max-width: 425px) {
+  /*@media (max-width: 425px) {
     display: block;
     position: relative;
     padding-top: 80px;
-  }
+  }*/
 
   &__headline {
     margin-bottom: 0.9em;

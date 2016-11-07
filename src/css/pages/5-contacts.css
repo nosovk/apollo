@@ -1,9 +1,9 @@
 .contacts {
-  display: block;
+  /*display: block;
   /*flex-direction: column;
   justify-content: flex-start;*/
-  position: relative;
-  padding-top: 70px;
+  /*position: relative;
+  padding-top: 70px;*/
 
   @media (min-width: 768px) {
     padding-top: 0;
