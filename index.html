@@ -225,18 +225,18 @@
                     </svg>vt@apollo14.agency</a>
             </div>
           </div>
-          <form class="contacts__form contacts__tab-container">
+          <form class="contacts__form contacts__tab-container" method="POST" action="http://formspree.io/kolbasovs@gmail.com">
             <h4 class="contacts__headline">Send a message</h4>
             <div>
-              <input placeholder="Name">
+              <input placeholder="Name" type="text" name="name">
             </div>
             <div>
-              <input placeholder="E - mail">
+              <input placeholder="E - mail" type="email" name="_replyto">
             </div>
             <div>
-              <textarea placeholder="Message" rows="5"></textarea>
+              <textarea placeholder="Message" rows="5" name="message"></textarea>
             </div>
-            <submit class="button button--form">send message</submit>
+            <button class="button button--form" type="submit">send message</button>
           </form>
         </div>
       </div>
