@@ -125,12 +125,14 @@
 
   &.active,
   &:hover {
-    a {
-      opacity: 1;
-    }
+    @media (min-width: 426px) {
+      a {
+        opacity: 1;
+      }
 
-    &::before {
-      max-width: 20px;
+      &::before {
+        max-width: 20px;
+      }
     }
   }
 }

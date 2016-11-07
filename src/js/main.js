@@ -273,27 +273,28 @@ contactTabs.init();
 })();
 
 
-// smooth scroll
-const animate = (elem, style, unit, from, to, time, prop) => {
-  if (!elem) {
-    return;
-  }
-  const start = new Date().getTime(),
-    timer = setInterval(() => {
-      const step = Math.min(1, (new Date().getTime() - start) / time);
-      if (prop) {
-        elem[style] = (from + (step * (to - from))) + unit;
-      } else {
-        elem.style[style] = (from + (step * (to - from))) + unit;
-      }
-      if (step === 1) {
-        clearInterval(timer);
-      }
-    }, 25);
-  elem.style[style] = from + unit;
-};
-
+// smooth scroll on mob
 (() => {
+  const animate = (elem, style, unit, from, to, time, prop) => {
+    if (!elem) {
+      return;
+    }
+    const start = new Date().getTime(),
+      timer = setInterval(() => {
+        const step = Math.min(1, (new Date().getTime() - start) / time);
+        if (prop) {
+          elem[style] = (from + (step * (to - from))) + unit;
+        } else {
+          elem.style[style] = (from + (step * (to - from))) + unit;
+        }
+        if (step === 1) {
+          clearInterval(timer);
+        }
+      }, 25);
+    elem.style[style] = from + unit;
+  };
+
+  // btn contacts in about section
   const btnToContacts = document.querySelector('.button--to-contacts');
 
   btnToContacts.addEventListener('click', () => {
@@ -301,6 +302,7 @@ const animate = (elem, style, unit, from, to, time, prop) => {
     animate(document.body, 'scrollTop', '', 0, target.offsetTop, 400, true);
   });
 
+  // pricing links
   const pricingLinks = document.querySelectorAll('.pricing__link');
 
   for (let i = 0; i < pricingLinks.length; i += 1) {
@@ -308,6 +310,17 @@ const animate = (elem, style, unit, from, to, time, prop) => {
       const target = document.getElementById('pricing');
       animate(document.body, 'scrollTop', '', window.pageYOffset, target.offsetTop, 400, true);
     });
+  }
+
+  // nav items
+  const navItems = document.querySelectorAll('.nav__item');
+  const navLinks = document.querySelectorAll('.nav__item a');
+  const targets = ['#about', '#works', '#process', '#pricing', '#contacts'];
+
+  if (window.innerWidth <= 425) {
+    for (let i = 0; i < navLinks.length; i += 1) {
+      navLinks[i].href = targets[i];
+    }
   }
 })();
 
@@ -321,7 +334,7 @@ $(document).ready(() => {
     css3: true,
   });
 
-  if (window.innerWidth <= 425 && document.getElementById('fullpage')) {
+  if (window.innerWidth <= 425) {
     $.fn.fullpage.destroy('all');
   }
 
