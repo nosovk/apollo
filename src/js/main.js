@@ -26,10 +26,11 @@
     const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
     return (
-      (rect.left >= 0)
-      && (rect.top >= 0)
-      && (rect.bottom <= windowHeight)
-      && (rect.right <= windowWidth)
+      // (rect.left >= 0)
+      // &&
+      (rect.top >= 0) &&
+      (rect.bottom <= (windowHeight * 1.2))
+      // && (rect.right <= windowWidth)
     );
   };
 
@@ -313,7 +314,6 @@ contactTabs.init();
   }
 
   // nav items
-  const navItems = document.querySelectorAll('.nav__item');
   const navLinks = document.querySelectorAll('.nav__item a');
   const targets = ['#about', '#works', '#process', '#pricing', '#contacts'];
 
