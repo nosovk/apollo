@@ -1,158 +1,129 @@
 // portfolio imgs
-// filter
-// const limit = 20; // number of images to show
-const imgCategories = document.querySelectorAll('.portfolio__category');
-const optionAll = imgCategories[0];
-const optionPhoto = imgCategories[1];
-const optionVideo = imgCategories[2];
-const optionLookbook = imgCategories[3];
-const itemsAll = [].slice.call(document.querySelectorAll('.portfolio__item'));
-const itemsPhoto = [].slice.call(document.querySelectorAll('.item--photo'));
-const itemsVideo = [].slice.call(document.querySelectorAll('.item--video'));
-const itemsLookbook = [].slice.call(document.querySelectorAll('.item--lookbook'));
+(() => {
+  const imgCategories = document.querySelectorAll('.portfolio__category');
+  const optionAll = imgCategories[0];
+  const optionPhoto = imgCategories[1];
+  const optionVideo = imgCategories[2];
+  const optionLookbook = imgCategories[3];
+  const itemsAll = [].slice.call(document.querySelectorAll('.portfolio__item'));
+  const itemsPhoto = [].slice.call(document.querySelectorAll('.item--photo'));
+  const itemsVideo = [].slice.call(document.querySelectorAll('.item--video'));
+  const itemsLookbook = [].slice.call(document.querySelectorAll('.item--lookbook'));
 
-// const isActive = element => element.classList.contains('is-active');
-// const isInvisible = element => !element.classList.contains('is-visible');
-// const makeVisible = (imgCategory) => {
-//   if (imgCategory.length > limit) {
-//     for (let n = 0; n < limit; n += 1) {
-//       imgCategory[n].classList.add('is-visible');
-//     }
-//   } else {
-//     for (let n = 0; n < imgCategory.length; n += 1) {
-//       imgCategory[n].classList.add('is-visible');
-//     }
-//   }
-// };
-// const lazyLoadImages = () => {
-//   // loads only imgs with class 'is-visible'
-//   const images = document.querySelectorAll('.is-visible img[data-src]');
-//
-//   for (let i = 0; i < images.length; i += 1) {
-//     images[i].setAttribute('src', images[i].getAttribute('data-src'));
-//     images[i].removeAttribute('data-src');
-//   }
-// };
-//
-// const isInViewport = (element) => {
-//   const rect = element.getBoundingClientRect();
-//
-//   return (
-//     rect.top >= 0 &&
-//     rect.left >= 0 &&
-//     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-//     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-//   );
-// };
-//
-// const loadHandler = () => {
-//   const images = document.querySelectorAll('img[data-src]');
-//
-//   [].forEach.call(images, (item) => {
-//     if (isInViewport(item)) {
-//       item.parentElement.classList.add('is-visible');
-//     }
-//     lazyLoadImages();
-//   });
-// };
-//
-// document.querySelector('.portfolio__inner').addEventListener('scroll', loadHandler);
-// window.addEventListener('scroll', loadHandler);
-// window.addEventListener('DOMContentLoaded', loadHandler);
-// window.addEventListener('load', loadHandler);
-// window.addEventListener('resize', loadHandler);
+  const lazyLoadImages = () => {
+    // loads only imgs with class 'is-visible'
+    const images = document.querySelectorAll('.is-visible img[data-src]');
 
-const myLazyLoad = new LazyLoad({
-  container: document.querySelector('.portfolio__items'),
-  threshold: 500,
-  throttle: 30,
-});
-
-const hide = (items) => {
-  for (let i = 0; i < items.length; i += 1) {
-    items[i].style.display = 'none';
-  }
-};
-const show = (items) => {
-  for (let i = 0; i < items.length; i += 1) {
-    items[i].style.display = 'block';
-  }
-};
-
-for (let i = 0; i < imgCategories.length; i += 1) {
-  imgCategories[i].addEventListener('click', (e) => {
-    e.preventDefault();
-    optionAll.classList.remove('is-active');
-    optionPhoto.classList.remove('is-active');
-    optionVideo.classList.remove('is-active');
-    optionLookbook.classList.remove('is-active');
-
-    // hide all items
-
-
-    if (e.target === optionAll) {
-      console.log('all clicked');
-      optionAll.classList.add('is-active');
-      hide(itemsAll);
-      show(itemsAll);
-    } else if (e.target === optionPhoto) {
-      console.log('photo clicked');
-      optionPhoto.classList.add('is-active');
-      hide(itemsAll);
-      show(itemsPhoto);
-    } else if (e.target === optionVideo) {
-      console.log('video clicked');
-      optionVideo.classList.add('is-active');
-      hide(itemsAll);
-      show(itemsVideo);
-    } else {
-      console.log('lookbook clicked');
-      optionLookbook.classList.add('is-active');
-      hide(itemsAll);
-      show(itemsLookbook);
+    for (let i = 0; i < images.length; i += 1) {
+      images[i].setAttribute('src', images[i].getAttribute('data-src'));
+      images[i].removeAttribute('data-src');
     }
+  };
 
-    // loadHandler();
-  });
-}
+  const isInViewport = (element) => {
+    const rect = element.getBoundingClientRect();
+    const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+    const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
-// // initial loading
-// (() => {
-//
-//   lazyLoadImages();
-// })();
+    return (
+      (rect.left >= 0)
+      && (rect.top >= 0)
+      && (rect.bottom <= windowHeight)
+      && (rect.right <= windowWidth)
+    );
+  };
+
+  const loadHandler = () => {
+    const images = document.querySelectorAll('img[data-src]');
+    [].forEach.call(images, (item) => {
+      if (isInViewport(item)) {
+        item.parentElement.classList.add('is-visible');
+      }
+      lazyLoadImages();
+    });
+  };
+
+  document.querySelector('.portfolio__inner').addEventListener('scroll', loadHandler);
+  window.addEventListener('scroll', loadHandler);
+  window.addEventListener('DOMContentLoaded', loadHandler);
+  window.addEventListener('load', loadHandler);
+  window.addEventListener('resize', loadHandler);
+
+
+  // project categories
+  const hide = (items) => {
+    for (let i = 0; i < items.length; i += 1) {
+      items[i].style.display = 'none';
+    }
+  };
+  const show = (items) => {
+    for (let i = 0; i < items.length; i += 1) {
+      items[i].style.display = 'block';
+    }
+  };
+
+  for (let i = 0; i < imgCategories.length; i += 1) {
+    imgCategories[i].addEventListener('click', (e) => {
+      e.preventDefault();
+      optionAll.classList.remove('is-active');
+      optionPhoto.classList.remove('is-active');
+      optionVideo.classList.remove('is-active');
+      optionLookbook.classList.remove('is-active');
+
+      hide(itemsAll);
+
+      if (e.target === optionAll) {
+        optionAll.classList.add('is-active');
+
+        show(itemsAll);
+      } else if (e.target === optionPhoto) {
+        optionPhoto.classList.add('is-active');
+        show(itemsPhoto);
+      } else if (e.target === optionVideo) {
+        optionVideo.classList.add('is-active');
+        show(itemsVideo);
+      } else {
+        optionLookbook.classList.add('is-active');
+        show(itemsLookbook);
+      }
+    });
+  }
+})();
 
 
 // burger & menu
-const burger = document.querySelector('.header__burger');
-const close = document.querySelector('.header__close');
-const navItems = document.querySelectorAll('.nav__item');
+(() => {
+  const burger = document.querySelector('.header__burger');
+  const close = document.querySelector('.header__close');
+  const navItems = document.querySelectorAll('.nav__item');
 
-const handleMenu = () => {
-  const menu = document.getElementById('menu');
+  const handleMenu = () => {
+    const menu = document.getElementById('menu');
 
-  if (menu.classList.contains('is-open')) {
-    menu.classList.remove('is-open');
-  } else {
-    menu.classList.add('is-open');
-  }
-};
+    if (menu.classList.contains('is-open')) {
+      menu.classList.remove('is-open');
+    } else {
+      menu.classList.add('is-open');
+    }
+  };
 
-burger.addEventListener('click', (e) => {
-  e.preventDefault();
-  handleMenu();
-});
-
-close.addEventListener('click', (e) => {
-  e.preventDefault();
-  handleMenu();
-});
-
-for (let i = 0, max = navItems.length; i < max; i += 1) {
-  navItems[i].addEventListener('click', () => {
+  burger.addEventListener('click', (e) => {
+    e.preventDefault();
     handleMenu();
   });
-}
+
+  close.addEventListener('click', (e) => {
+    e.preventDefault();
+    handleMenu();
+  });
+
+  for (let i = 0, max = navItems.length; i < max; i += 1) {
+    navItems[i].addEventListener('click', () => {
+      handleMenu();
+    });
+  }
+})();
+
 
 // tabs
 (() => {
@@ -252,21 +223,24 @@ pricingTabs.init();
 contactTabs.init();
 
 // pricing tabs back buttons
-const pricingBack = document.querySelectorAll('.item__back');
+(() => {
+  const pricingBack = document.querySelectorAll('.item__back');
 
-for (let i = 0; i < pricingBack.length; i += 1) {
-  pricingBack[i].addEventListener('click', (e) => {
-    e.preventDefault();
-    pricingTabs.back();
-  });
-}
+  for (let i = 0; i < pricingBack.length; i += 1) {
+    pricingBack[i].addEventListener('click', (e) => {
+      e.preventDefault();
+      pricingTabs.back();
+    });
+  }
+})();
+
 
 // hide active pricing tab on small screens
 (() => {
   const pricingItem = document.querySelector('.pricing__item');
   const pricingLink = document.querySelector('.pricing__link');
 
-  if (window.innerWidth <= 769) {
+  if (window.innerWidth <= 769 && pricingLink) {
     pricingItem.classList.remove('is-active');
     pricingLink.classList.remove('is-active');
   }
@@ -274,29 +248,32 @@ for (let i = 0; i < pricingBack.length; i += 1) {
 
 
 // portfolio modal
-const portfolioButton = document.querySelector('.button--projects');
-const portfolioModal = document.querySelector('.portfolio');
-const closeModal = document.querySelector('.header__close--portfolio');
+(() => {
+  const portfolioButton = document.querySelector('.button--projects');
+  const portfolioModal = document.querySelector('.portfolio');
+  const closeModal = document.querySelector('.header__close--portfolio');
 
-portfolioButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  portfolioModal.classList.add('is-open');
-  // loadHandler();
-  // disable body scroll
-  $.fn.fullpage.setAllowScrolling(false);
-  $.fn.fullpage.setKeyboardScrolling(false);
-});
+  portfolioButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    portfolioModal.classList.add('is-open');
+    // disable body scroll
+    $.fn.fullpage.setAllowScrolling(false);
+    $.fn.fullpage.setKeyboardScrolling(false);
+  });
 
-closeModal.addEventListener('click', (e) => {
-  e.preventDefault();
-  portfolioModal.classList.remove('is-open');
-  // enable body scroll
-  $.fn.fullpage.setAllowScrolling(true);
-  $.fn.fullpage.setKeyboardScrolling(true);
-});
+  if (closeModal) {
+    closeModal.addEventListener('click', (e) => {
+      e.preventDefault();
+      portfolioModal.classList.remove('is-open');
+      // enable body scroll
+      $.fn.fullpage.setAllowScrolling(true);
+      $.fn.fullpage.setKeyboardScrolling(true);
+    });
+  }
+})();
 
-const btnToContacts = document.querySelector('.button--to-contacts');
 
+// smooth scroll
 const animate = (elem, style, unit, from, to, time, prop) => {
   if (!elem) {
     return;
@@ -316,19 +293,24 @@ const animate = (elem, style, unit, from, to, time, prop) => {
   elem.style[style] = from + unit;
 };
 
-btnToContacts.addEventListener('click', () => {
-  const target = document.getElementById('contacts');
-  animate(document.body, 'scrollTop', '', 0, target.offsetTop, 400, true);
-});
+(() => {
+  const btnToContacts = document.querySelector('.button--to-contacts');
 
-const pricingLinks = document.querySelectorAll('.pricing__link');
-
-for (let i = 0; i < pricingLinks.length; i += 1) {
-  pricingLinks[i].addEventListener('click', () => {
-    const target = document.getElementById('pricing');
-    animate(document.body, 'scrollTop', '', window.pageYOffset, target.offsetTop, 400, true);
+  btnToContacts.addEventListener('click', () => {
+    const target = document.getElementById('contacts');
+    animate(document.body, 'scrollTop', '', 0, target.offsetTop, 400, true);
   });
-}
+
+  const pricingLinks = document.querySelectorAll('.pricing__link');
+
+  for (let i = 0; i < pricingLinks.length; i += 1) {
+    pricingLinks[i].addEventListener('click', () => {
+      const target = document.getElementById('pricing');
+      animate(document.body, 'scrollTop', '', window.pageYOffset, target.offsetTop, 400, true);
+    });
+  }
+})();
+
 
 // jQuery plugins
 $(document).ready(() => {
@@ -339,7 +321,7 @@ $(document).ready(() => {
     css3: true,
   });
 
-  if (window.innerWidth <= 425) {
+  if (window.innerWidth <= 425 && document.getElementById('fullpage')) {
     $.fn.fullpage.destroy('all');
   }
 
