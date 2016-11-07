@@ -21,15 +21,12 @@
           +icon('mail')
           |vt@apollo14.agency
 
-    form.contacts__form.contacts__tab-container
+    form.contacts__form.contacts__tab-container(method='POST' action='http://formspree.io/kolbasovs@gmail.com')
       h4.contacts__headline Send a message
       div
-        //- label Name
-        input(placeholder='Name')
+        input(placeholder='Name', type='text', name='name')
       div
-        //- label E - mail
-        input(placeholder='E - mail')
+        input(placeholder='E - mail', type='email' name='_replyto')
       div
-        //- label Message
-        textarea(placeholder='Message', rows='5')
-      submit.button.button--form send message
+        textarea(placeholder='Message', rows='5', name='message')
+      button(type='submit').button.button--form send message
